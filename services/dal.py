@@ -20,8 +20,8 @@ class SoldierDAL:
         with MongoDBConnection() as mongo_conn:
             db = mongo_conn.get_db()
             collection = db[self.collection_name]
-            collection.insert_one(soldier.to_dict())
-            print('Soldier created!')
+            sold_doc = collection.insert_one(soldier)
+            print(f'Soldier created with ID: {sold_doc.inserted_id}')
 
     def delete_soldier(self,id):
         with MongoDBConnection() as mongo_conn:
@@ -38,7 +38,7 @@ class SoldierDAL:
             try:
                 db = mongo_conn.get_db()
                 collection = db[self.collection_name]
-                collection.update_one({'_id': ObjectId(soldier['_id'])}, {"$set": soldier.to_dict().remove('_id', None)})
+                collection.update_one({'_id': ObjectId(soldier['_id'])}, {"$set": soldier.remove('_id', None)})
                 print(f'Soldier {soldier['_id']} up to date!')
             except Exception as e:
                 print(f"Error updating soldier {soldier['_id']}: {e}")

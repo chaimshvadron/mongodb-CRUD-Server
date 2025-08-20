@@ -17,13 +17,11 @@ class Soldier:
         )
 
     def to_dict(self) -> dict:
-        
-        result = {
-            "first_name": self.first_name,
-            "last_name": self.last_name,
-            "phone_number": self.phone_number,
-            "rank": self.rank
-        }
+        result = {}
         if self.ID:
-            result["_id"] = self.ID
+            result["_id"] = str(self.ID)
+        result["first_name"] = self.first_name
+        result["last_name"] = self.last_name
+        result["phone_number"] = self.phone_number
+        result["rank"] = self.rank
         return result
