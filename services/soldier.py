@@ -1,6 +1,6 @@
 class Soldier:
-    def __init__(self, _id: int, first_name: str, last_name: str, phone_number: str, rank: str):
-        self._id = _id
+    def __init__(self, ID = None, first_name = '', last_name = '', phone_number = '', rank = ''):
+        self.ID = ID
         self.first_name = first_name
         self.last_name = last_name
         self.phone_number = phone_number

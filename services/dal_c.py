@@ -15,4 +15,23 @@ class SoldierDAL:
                 soldiers.append(soldier)
             return soldiers
         
-    
+    def create_soldier(self,soldier):
+        with MongoDBConnection() as mongo_conn:
+            db = mongo_conn.get_db()
+            collection = db[self.collection_name]
+            collection.insertOne(soldier)
+            print('Soldier created!')
+
+    def delete_soldier(self,id):
+        with MongoDBConnection() as mongo_conn:
+            db = mongo_conn.get_db()
+            collection = db[self.collection_name]
+            collection.remove({'_ID': id})
+            print(f'Soldier ID {id} deleted!')
+
+    def update_soldier_details(self, soldier):
+        with MongoDBConnection() as mongo_conn:
+            db = mongo_conn.get_db()
+            collection = db[self.collection_name]
+            collection.updateOne(soldier)
+            print(f'Soldier {soldier['_ID']} up to date!')
