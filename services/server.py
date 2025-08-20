@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from services.dal import SoldierDAL
-from services.soldier import Soldier
+from dal import SoldierDAL
+from soldier import Soldier
 
 app = FastAPI()
 dal = SoldierDAL()
