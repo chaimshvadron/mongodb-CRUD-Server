@@ -26,7 +26,7 @@ class SoldierDAL:
         with MongoDBConnection() as mongo_conn:
             db = mongo_conn.get_db()
             collection = db[self.collection_name]
-            collection.delete_one({'_ID': id})
+            collection.delete_one({'_id': id})
             print(f'Soldier ID {id} deleted!')
 
     def update_soldier_details(self, soldier):
@@ -34,4 +34,4 @@ class SoldierDAL:
             db = mongo_conn.get_db()
             collection = db[self.collection_name]
             collection.update_one(soldier)
-            print(f'Soldier {soldier['_ID']} up to date!')
+            print(f'Soldier {soldier['_id']} up to date!')
