@@ -9,7 +9,7 @@ class Soldier:
     @staticmethod
     def from_dict(data: dict) -> "Soldier":
         return Soldier(
-            ID=data.get("ID"),
+            _id=data.get("_id"),
             first_name=data.get("first_name"),
             last_name=data.get("last_name"),
             phone_number=data.get("phone_number"),
@@ -18,7 +18,7 @@ class Soldier:
 
     def to_dict(self) -> dict:
         return {
-            "ID": self.ID,
+            "_id": str(self._id) if self._id is not None else None,
             "first_name": self.first_name,
             "last_name": self.last_name,
             "phone_number": self.phone_number,
