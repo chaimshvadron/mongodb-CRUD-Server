@@ -38,7 +38,8 @@ class SoldierDAL:
             try:
                 db = mongo_conn.get_db()
                 collection = db[self.collection_name]
-                collection.update_one({'_id': ObjectId(soldier['_id'])}, {"$set": soldier.remove('_id', None)})
-                print(f'Soldier {soldier['_id']} up to date!')
+                _id = soldier.pop('_id', None)
+                collection.update_one({'_id': ObjectId(_id)}, {"$set": soldier})
+                print(f'Soldier {_id} up to date!')
             except Exception as e:
-                print(f"Error updating soldier {soldier['_id']}: {e}")
+                print(f"Error updating soldier {_id}: {e}")
