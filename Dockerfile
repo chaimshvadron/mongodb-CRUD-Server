@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -6,6 +6,10 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY services/data_loader/ ./
+COPY services/ ./services/
 
-CMD ["uvicorn", "services.server:app", "--host", "0.0.0.0", "--port", "8000"]
+ENV PYTHONPATH=/app
+
+EXPOSE  8000
+
+CMD ["uvicorn", "services.data_loader.server:app", "--host", "0.0.0.0", "--port", "8000"]

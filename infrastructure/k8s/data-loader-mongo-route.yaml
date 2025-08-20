@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: data-loader
+spec:
+  to:
+    kind: Service
+    name: data-loader
+  port:
+    targetPort: 8000
+  tls:
+    termination: edge

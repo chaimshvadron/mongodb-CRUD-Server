@@ -1,6 +1,6 @@
 from bson import ObjectId
-from mongodb_connection import MongoDBConnection
-from soldier import Soldier
+from services.data_loader.mongodb_connection import MongoDBConnection
+from services.data_loader.soldier import Soldier
 
 class SoldierDAL:
     def __init__(self, collection_name="soldier_details"):
