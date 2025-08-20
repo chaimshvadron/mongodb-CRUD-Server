@@ -1,5 +1,5 @@
-from services.mongodb_connection import MongoDBConnection
-from services.soldier import Soldier
+from mongodb_connection import MongoDBConnection
+from soldier import Soldier
 
 class SoldierDAL:
     def __init__(self, collection_name="soldier_details"):

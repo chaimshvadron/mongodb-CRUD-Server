@@ -9,7 +9,7 @@ logs/
 
 dist/
 build/
-
+__pycache__/
 .vscode/
 .idea/
 *.sublime-workspace
