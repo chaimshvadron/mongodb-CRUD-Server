@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  data_loader:
+    image: chaimshvadron/data_loader_mongo:latest
+    ports:
+      - "8000:8000"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "admin"
+      MONGO_INITDB_ROOT_PASSWORD: "password"
+    restart: unless-stopped
