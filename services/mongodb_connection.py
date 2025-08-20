@@ -18,7 +18,7 @@ class MongoDBConnection:
             print(f"Failed to connect to MongoDB: {e}")
             raise
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self):
         if self.client:
             self.client.close()
             print("MongoDB connection closed.")
