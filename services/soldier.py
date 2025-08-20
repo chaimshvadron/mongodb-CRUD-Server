@@ -17,10 +17,13 @@ class Soldier:
         )
 
     def to_dict(self) -> dict:
-        return {
-            "_id": str(self.ID) if self.ID is not None else None,
+        
+        result = {
             "first_name": self.first_name,
             "last_name": self.last_name,
             "phone_number": self.phone_number,
             "rank": self.rank
         }
+        if self.ID:
+            result["_id"] = self.ID
+        return result

@@ -20,7 +20,7 @@ class SoldierDAL:
         with MongoDBConnection() as mongo_conn:
             db = mongo_conn.get_db()
             collection = db[self.collection_name]
-            collection.insert_one(soldier)
+            collection.insert_one(soldier.to_dict())
             print('Soldier created!')
 
     def delete_soldier(self,id):
