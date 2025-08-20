@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from dal_c import SoldierDAL
+from services.dal import SoldierDAL
 
 app = FastAPI()
 dal = SoldierDAL()
